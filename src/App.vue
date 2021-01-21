@@ -1,7 +1,6 @@
 <template>
   <div id="app">
- 
-    <AppNavigation/>
+    <AppNavigation @inputData="updateEndPoint"/>
   </div>
 </template>
 
@@ -12,7 +11,17 @@ export default {
   name: 'App',
   components: {
     AppNavigation
-  }
+  },
+  data: function() {
+		return {
+			endPoint: null,
+		};
+	},
+  methods: {
+		updateEndPoint(variable) {
+			this.endPoint = variable;
+		},
+	},
 }
 </script>
 

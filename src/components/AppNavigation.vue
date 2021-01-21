@@ -8,7 +8,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-form-select v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
+          <b-form-select v-model="selected" :options="options" size="sm" class="mt-3" v-on:change="submit"></b-form-select>
           <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
         </b-navbar-nav>
       </b-collapse>
@@ -24,8 +24,9 @@ export default {
   },
   data() {
 		return {
-			selected: '',
+			selected: null,
        options: [
+          { value: null, text: 'Please select an option' },
           { value: 'Films', text: 'Films' },
           { value: 'Planets', text: 'Planets' },
           { value: 'Spaceships', text: 'Spaceships' },
@@ -33,7 +34,12 @@ export default {
           { value: 'People', text: 'People'},
           {value: 'Species', text: 'Species'}
         ],
-		};
+    }
+	},
+  methods: {
+		submit: function() {
+			this.$emit('inputData', this.selected)
+		},
 	},
 }
 </script>
