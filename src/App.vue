@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppNavigation @inputData="updateEndPoint"/>
+    <AppNavigation @inputData="updateEndPoint" />
     <FilmCards :endPoint="endPoint" />
   </div>
 </template>
@@ -18,12 +18,14 @@ export default {
   data: function() {
 		return {
 			endPoint: null,
+      results: null,
 		};
 	},
   methods: {
 		updateEndPoint(variable) {
 			this.endPoint = variable;
 		},
+
 	},
 }
 </script>
