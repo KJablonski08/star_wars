@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <AppNavigation @inputData="updateEndPoint"/>
+    <FilmCards :endPoint="endPoint" />
   </div>
 </template>
 
 <script>
 import AppNavigation from './components/AppNavigation.vue'
+import FilmCards from './components/FilmCards.vue'
 
 export default {
   name: 'App',
   components: {
-    AppNavigation
+    AppNavigation,
+    FilmCards,
   },
   data: function() {
 		return {
