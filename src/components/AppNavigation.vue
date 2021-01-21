@@ -1,15 +1,22 @@
 <template>
   <div>
+
+  <!-- DARK NAVBAR --> 
+
     <b-navbar toggleable="lg" type="dark" variant="dark" v-if="!checked">
       <b-navbar-brand><img alt="Vue logo" src="../assets/logo.png"></b-navbar-brand>
       <b-form-checkbox v-model="checked" name="check-button" switch class="ml-auto dark" v-on:change="submit">The Dark Side
       </b-form-checkbox>
     </b-navbar>
+
+  <!-- LIGHT NAVBAR-->
+  
     <b-navbar toggleable="lg" type="dark" variant="light" v-if="checked">
       <b-navbar-brand><img alt="Vue logo" src="../assets/logo.png"></b-navbar-brand>
       <b-form-checkbox v-model="checked" name="check-button" switch class="ml-auto" v-on:change="submit">
       The Force
       </b-form-checkbox>
+
     </b-navbar>
   </div>
 </template>
@@ -17,9 +24,6 @@
 <script>
 export default {
   name: 'AppNavigation',
-  props: {
-    msg: String
-  },
   data() {
       return {
         checked: false

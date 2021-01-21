@@ -161,6 +161,7 @@
     data() {
 		return {
 			results: null,
+            count: null,
             selected: null,
             search: null,
             options: [
