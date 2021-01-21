@@ -17,11 +17,10 @@
 					item.name
 				}}</option>
 			</datalist>
-            <p>{{this.search}}</p>
         </div>
     
     <!-- ACCORDION --> 
-        <div class="accordion" role="tablist" v-for="(item, index) in results" :key="index" v-show="search === item.name || search === null || search === ''">
+        <div class="accordion" role="tablist" v-for="(item, index) in results" :key="index" v-show="search === item.name || search === null || search === '' || item.name.includes(search)">
             <b-card no-body class="mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
                     <b-button block v-b-toggle="'collapse' + index" variant="dark" v-if="selected === 'films'">{{item.title}}</b-button>
