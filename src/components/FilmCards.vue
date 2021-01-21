@@ -4,7 +4,7 @@
         <b-form-select v-model="selected" :options="options" size="sm" class="mt-3 w-50 p-3 mb-1 bg-secondary text-light" v-on:change="updateResults" ></b-form-select>
         <div class="mt-3" v-if="selected">Selected: <strong>{{ selected.toUpperCase() }}</strong></div>
         <div class="d-flex justify-content-center">
-            <b-form-input list="my-list-id"  v-show="results" class="w-50"></b-form-input>
+            <b-form-input list="my-list-id"  v-show="results" class="w-50" v-on:input="filterList"></b-form-input>
 
 			<datalist id="my-list-id" v-if="selected === 'films'">
 				<option v-for="(item, index) in results" :key="index">{{
@@ -17,10 +17,11 @@
 					item.name
 				}}</option>
 			</datalist>
+            <p>{{this.search}}</p>
         </div>
     
     <!-- ACCORDION --> 
-        <div class="accordion" role="tablist" v-for="(item, index) in results" :key="index">
+        <div class="accordion" role="tablist" v-for="(item, index) in results" :key="index" v-show="search === item.name || search === null || search === ''">
             <b-card no-body class="mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
                     <b-button block v-b-toggle="'collapse' + index" variant="dark" v-if="selected === 'films'">{{item.title}}</b-button>
@@ -50,6 +51,7 @@
 		return {
 			results: null,
             selected: null,
+            search: null,
             options: [
                 { value: null, text: 'Please select an option' },
                 { value: 'films', text: 'films' },
@@ -66,7 +68,10 @@
            axios
 			.get("http://swapi.dev/api/" + this.selected + "/")
 			.then((response) => (this.results = response.data.results))
-       } 
+       },
+       filterList() {
+			this.search = event.target.value;
+		},
     },
     }
 </script>
