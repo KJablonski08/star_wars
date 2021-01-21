@@ -8,14 +8,8 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown text="Resource" right>
-            <b-dropdown-item>Films</b-dropdown-item>
-            <b-dropdown-item>Planets</b-dropdown-item>
-            <b-dropdown-item>Spaceships</b-dropdown-item>
-            <b-dropdown-item>Vehicles</b-dropdown-item>
-            <b-dropdown-item>People</b-dropdown-item>
-            <b-dropdown-item>Species</b-dropdown-item>
-          </b-nav-item-dropdown>
+          <b-form-select v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
+          <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -24,10 +18,23 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'AppNavigation',
   props: {
     msg: String
-  }
+  },
+  data() {
+		return {
+			selected: '',
+       options: [
+          { value: 'Films', text: 'Films' },
+          { value: 'Planets', text: 'Planets' },
+          { value: 'Spaceships', text: 'Spaceships' },
+          { value: 'Vehicles', text: 'Vehicles' },
+          { value: 'People', text: 'People'},
+          {value: 'Species', text: 'Species'}
+        ],
+		};
+	},
 }
 </script>
 
