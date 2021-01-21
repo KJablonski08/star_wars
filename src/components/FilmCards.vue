@@ -34,7 +34,14 @@
                 </b-card-header>
                 <b-collapse :id="'collapse' + index" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
-                        <b-card-text v-for="(key, value) in item" :key="value"><strong>{{value.toUpperCase()}}</strong> : {{key}}</b-card-text>
+                        <b-card-text v-for="(key, value) in item" :key="value">
+                            <div v-if="value !== 'created' && value !== 'edited'">   
+                                <strong>{{value.toUpperCase()}}</strong> : {{key}}
+                            </div>
+                            <div v-if="value === 'created' || value === 'edited'">   
+                                <strong>{{value.toUpperCase()}}</strong> : {{moment(new Date(key)).format('MMMM Do YYYY, h:mm:ss a')}}
+                            </div>
+                        </b-card-text>
                     </b-card-body>
                 </b-collapse>
             </b-card>
@@ -86,6 +93,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import axios from 'axios';
     export default {
 	props: {
@@ -117,6 +125,9 @@
        filterList() {
 			this.search = event.target.value;
 		},
+        moment: function () {
+            return moment();
+  }
     },
     }
 </script>
