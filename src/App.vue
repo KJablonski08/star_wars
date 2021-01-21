@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppNavigation @inputData="updateEndPoint" />
-    <FilmCards :endPoint="endPoint" />
+    <AppNavigation @inputData="updateMode" />
+    <FilmCards :mode="mode" />
   </div>
 </template>
 
@@ -17,13 +17,13 @@ export default {
   },
   data: function() {
 		return {
-			endPoint: null,
+			mode: null,
       results: null,
 		};
 	},
   methods: {
-		updateEndPoint(variable) {
-			this.endPoint = variable;
+		updateMode(variable) {
+			this.mode = variable;
 		},
 
 	},
