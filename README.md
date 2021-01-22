@@ -36,8 +36,9 @@ npm run build
 ```
 
 ## ideas for future improvement 
-- create detail pages for each option in categories
 - incorporate vue-router
+- create detail pages for each option in categories
 - update URL links to link to individual detail pages 
 - incorporate second API for images 
+- working with pages in swapi to get more information (full count for each category) 
 
