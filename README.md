@@ -1,8 +1,21 @@
-# star_wars
+# Star Wars Ap
 
-![star wars walkthrough]('./star_wars.gif')
+A small application built to interface with [Star Wars](https://swapi.dev) RESTFul API.
+Goal: include a list function for returning a list and the ability to drill into a detailed record
+
+Search through category options using a Select Form - Films, Planets, Starships, Vehicles, People, Species
+Then filter through search results using the datalist input form 
+
+for fun - use the toggle on the navigation bar to switch from light theme (the force) to dark theme (the dark side)
+
+## Preview 
+![star wars walkthrough](star_wars.gif)
 
 ## Technologies Used
+
+- VueJs
+- Vue Bootstrap
+- SWAPI REST api - https://swapi.dev
 
 ## Project setup
 
@@ -22,12 +35,9 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+## ideas for future improvement 
+- create detail pages for each option in categories
+- incorporate vue-router
+- update URL links to link to individual detail pages 
+- incorporate second API for images 
 
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
