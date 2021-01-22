@@ -1,4 +1,4 @@
-# Star Wars Ap
+# Star Wars App
 
 A small application built to interface with [Star Wars](https://swapi.dev) RESTFul API.
 Goal: include a list function for returning a list and the ability to drill into a detailed record
